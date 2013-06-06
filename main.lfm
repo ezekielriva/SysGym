@@ -1,8 +1,10 @@
-object Form1: TForm1
-  Left = 250
-  Height = 240
-  Top = 250
-  Width = 320
-  Caption = 'Form1'
-  LCLVersion = '0.9.30.4'
+object form_main: Tform_main
+  Left = 280
+  Height = 455
+  Top = 111
+  Width = 563
+  Caption = 'Sistema de Gestión de Gimnasios: SysGym'
+  DefaultMonitor = dmMainForm
+  OnCreate = FormCreate
+  LCLVersion = '1.0.6.0'
 end

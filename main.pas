@@ -5,10 +5,14 @@ unit main;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs; 
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, login, conexiones;
 
 type
-  TForm1 = class(TForm)
+
+  { Tform_main }
+
+  Tform_main = class(TForm)
+    procedure FormCreate(Sender: TObject);
   private
     { private declarations }
   public
@@ -16,11 +20,21 @@ type
   end; 
 
 var
-  Form1: TForm1; 
+  form_main: Tform_main;
+  form_login: Tform_login;
 
 implementation
 
 {$R *.lfm}
+
+{ Tform_main }
+
+procedure Tform_main.FormCreate(Sender: TObject);
+begin
+  Application.CreateForm(Tform_login, form_login);
+  modulo_conexiones.ZConexion.Connect;
+  form_login.Show;
+end;
 
 end.
 

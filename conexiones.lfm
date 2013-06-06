@@ -1,0 +1,22 @@
+object modulo_conexiones: Tmodulo_conexiones
+  OldCreateOrder = False
+  Height = 132
+  HorizontalOffset = 311
+  VerticalOffset = 207
+  Width = 95
+  object ZConexion: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = False
+    Properties.Strings = (
+      'AutoEncodeStrings='
+    )
+    HostName = 'localhost'
+    Port = 0
+    Database = 'SysGym'
+    User = 'root'
+    Password = 'root'
+    Protocol = 'mysql-5'
+    left = 32
+    top = 24
+  end
+end

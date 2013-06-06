@@ -1,0 +1,13 @@
+object modulos_datos_m: Tmodulos_datos_m
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 169
+  HorizontalOffset = 470
+  VerticalOffset = 282
+  Width = 369
+  object ZRO_login: TZReadOnlyQuery
+    Params = <>
+    left = 40
+    top = 8
+  end
+end

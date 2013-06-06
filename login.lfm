@@ -1,0 +1,61 @@
+object form_login: Tform_login
+  Left = 414
+  Height = 233
+  Top = 148
+  Width = 316
+  Caption = 'Login'
+  ClientHeight = 233
+  ClientWidth = 316
+  FormStyle = fsMDIChild
+  OnCreate = FormCreate
+  LCLVersion = '1.0.6.0'
+  object lbl_user: TLabel
+    Left = 8
+    Height = 16
+    Top = 48
+    Width = 49
+    Caption = 'lbl_user'
+    ParentColor = False
+  end
+  object lbl_pass: TLabel
+    Left = 8
+    Height = 16
+    Top = 88
+    Width = 51
+    Caption = 'lbl_pass'
+    ParentColor = False
+  end
+  object txt_user: TEdit
+    Left = 72
+    Height = 25
+    Top = 48
+    Width = 224
+    TabOrder = 0
+    Text = 'ezekielr'
+  end
+  object txt_pass: TEdit
+    Left = 72
+    Height = 25
+    Top = 88
+    Width = 224
+    EchoMode = emPassword
+    PasswordChar = '*'
+    TabOrder = 1
+    Text = 'txt_pass'
+  end
+  object Button1: TButton
+    Left = 112
+    Height = 25
+    Top = 128
+    Width = 75
+    Caption = 'Conectar'
+    OnClick = Button1Click
+    TabOrder = 2
+  end
+  object zQuery: TZQuery
+    Connection = modulo_conexiones.ZConexion
+    Params = <>
+    left = 24
+    top = 160
+  end
+end
