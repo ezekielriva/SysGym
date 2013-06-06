@@ -1,0 +1,248 @@
+object form_maquina: Tform_maquina
+  Left = 321
+  Height = 373
+  Top = 148
+  Width = 800
+  Caption = 'SysGym: Maquinas'
+  ClientHeight = 373
+  ClientWidth = 800
+  OnCreate = FormCreate
+  LCLVersion = '1.0.6.0'
+  object dbGrid_maquina: TDBGrid
+    Left = 8
+    Height = 296
+    Top = 64
+    Width = 648
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'id'
+        Width = 158
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'Descripcion'
+        Width = 158
+        FieldName = 'descripcion'
+      end    
+      item
+        Title.Caption = 'Estado'
+        Width = 158
+        FieldName = 'Estado_id'
+      end    
+      item
+        Title.Caption = 'Categoria'
+        Width = 160
+        FieldName = 'Categoria_id'
+      end>
+    DataSource = ds_Maquina
+    Scrollbars = ssAutoVertical
+    TabOrder = 0
+    TitleStyle = tsNative
+  end
+  object GroupBox1: TGroupBox
+    Left = 664
+    Height = 352
+    Top = 8
+    Width = 129
+    Caption = 'Acciones'
+    ClientHeight = 335
+    ClientWidth = 125
+    TabOrder = 2
+    object btn_limpiar_filtro: TButton
+      Left = 6
+      Height = 25
+      Top = 193
+      Width = 115
+      Caption = 'Limpiar Filtro'
+      OnClick = btn_limpiar_filtroClick
+      TabOrder = 0
+    end
+    object btn_salir: TButton
+      Left = 6
+      Height = 25
+      Top = 305
+      Width = 115
+      Caption = 'Salir'
+      OnClick = btn_salirClick
+      TabOrder = 1
+    end
+    object btn_nuevo: TButton
+      Left = 6
+      Height = 25
+      Top = 3
+      Width = 115
+      Caption = 'Nueva'
+      OnClick = btn_nuevoClick
+      TabOrder = 2
+    end
+    object btn_borrar: TButton
+      Left = 6
+      Height = 25
+      Top = 65
+      Width = 115
+      Caption = 'Borrar'
+      OnClick = btn_borrarClick
+      TabOrder = 3
+    end
+    object btn_aplicar: TButton
+      Left = 6
+      Height = 25
+      Top = 33
+      Width = 115
+      Caption = 'Aplicar'
+      OnClick = btn_aplicarClick
+      TabOrder = 4
+    end
+  end
+  object gb_filtro: TGroupBox
+    Left = 8
+    Height = 49
+    Top = 8
+    Width = 649
+    Caption = 'Filtro'
+    ClientHeight = 32
+    ClientWidth = 645
+    TabOrder = 1
+    object dbcb_filtro_estado: TDBComboBox
+      Left = 326
+      Height = 27
+      Top = 1
+      Width = 152
+      DataField = 'nombre'
+      DataSource = ds_estado
+      ItemHeight = 0
+      MaxLength = 0
+      OnChange = dbcb_filtro_estadoChange
+      Sorted = True
+      TabOrder = 0
+    end
+    object dbcb_filtro_categoria: TDBComboBox
+      Left = 486
+      Height = 27
+      Top = 1
+      Width = 156
+      DataField = 'nombre'
+      DataSource = ds_categoria
+      ItemHeight = 0
+      MaxLength = 0
+      Sorted = True
+      TabOrder = 1
+    end
+  end
+  object zTableMaquina: TZTable
+    Connection = modulo_conexiones.ZConexion
+    TableName = 'Maquina'
+    LinkedFields = 'Estado_id'
+    left = 56
+    top = 264
+    object zTable_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zTable_descripcion: TStringField
+      DisplayLabel = 'Descripción'
+      DisplayWidth = 400
+      FieldKind = fkData
+      FieldName = 'descripcion'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 400
+    end
+    object zTable_Categoria_id: TLongintField
+      DisplayLabel = 'Categoria'
+      DisplayWidth = 10
+      FieldKind = fkLookup
+      FieldName = 'Categoria_id'
+      Index = 2
+      KeyFields = 'Categoria_id'
+      LookupCache = True
+      LookupDataSet = ZROQuery_Categoria
+      LookupKeyFields = 'id'
+      LookupResultField = 'nombre'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zTable_Estado_id: TLongintField
+      DisplayLabel = 'Estado'
+      DisplayWidth = 10
+      FieldKind = fkLookup
+      FieldName = 'Estado_id'
+      Index = 3
+      KeyFields = 'Estado_id'
+      LookupCache = True
+      LookupDataSet = ZROQuery_Estado
+      LookupKeyFields = 'id'
+      LookupResultField = 'nombre'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      OnChange = zTable_Estado_idChange
+    end
+  end
+  object ds_Maquina: TDatasource
+    DataSet = zTableMaquina
+    left = 160
+    top = 104
+  end
+  object ds_estado: TDatasource
+    DataSet = ZROQuery_Estado
+    left = 392
+    top = 104
+  end
+  object ds_categoria: TDatasource
+    DataSet = ZROQuery_Categoria
+    left = 544
+    top = 104
+  end
+  object ZROQuery_Estado: TZReadOnlyQuery
+    Connection = modulo_conexiones.ZConexion
+    SQL.Strings = (
+      'SELECT * FROM Estado'
+    )
+    Params = <>
+    left = 192
+    top = 264
+    object ZROQuery_Estadoid: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ZROQuery_Estadonombre: TStringField
+      DisplayWidth = 80
+      FieldKind = fkData
+      FieldName = 'nombre'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
+  end
+  object ZROQuery_Categoria: TZReadOnlyQuery
+    Connection = modulo_conexiones.ZConexion
+    SQL.Strings = (
+      'SELECT * FROM Categoria'
+    )
+    Params = <>
+    left = 120
+    top = 288
+  end
+end

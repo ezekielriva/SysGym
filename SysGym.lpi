@@ -43,16 +43,16 @@
         <PackageName Value="LCL"/>
       </Item4>
     </RequiredPackages>
-    <Units Count="9">
+    <Units Count="13">
       <Unit0>
         <Filename Value="SysGym.lpr"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SysGym"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
         <TopLine Value="6"/>
-        <CursorPos X="22" Y="24"/>
-        <UsageCount Value="24"/>
+        <CursorPos X="3" Y="25"/>
+        <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -62,14 +62,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="main"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="17"/>
-        <CursorPos X="68" Y="34"/>
-        <UsageCount Value="24"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <TopLine Value="19"/>
+        <CursorPos X="24" Y="27"/>
+        <UsageCount Value="28"/>
       </Unit1>
       <Unit2>
         <Filename Value="main.lfm"/>
@@ -87,10 +83,10 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="login"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="10"/>
-        <CursorPos X="50" Y="23"/>
+        <TopLine Value="28"/>
+        <CursorPos X="4" Y="42"/>
         <ComponentState Value="1"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="28"/>
       </Unit3>
       <Unit4>
         <Filename Value="/usr/lib/lazarus/0.9.30.4/lcl/include/control.inc"/>
@@ -109,7 +105,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="34" Y="18"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="28"/>
       </Unit5>
       <Unit6>
         <Filename Value="modulo_datos.pas"/>
@@ -121,50 +117,181 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="52" Y="8"/>
-        <UsageCount Value="24"/>
+        <UsageCount Value="28"/>
       </Unit6>
       <Unit7>
         <Filename Value="lib/zeosdbo/src/component/ZAbstractRODataset.pas"/>
         <UnitName Value="ZAbstractRODataset"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="600"/>
-        <CursorPos X="1" Y="611"/>
+        <TopLine Value="829"/>
+        <CursorPos X="20" Y="837"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit7>
       <Unit8>
         <Filename Value="/usr/share/lazarus/1.0.6/lcl/include/customform.inc"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="2055"/>
-        <CursorPos X="1" Y="2066"/>
-        <UsageCount Value="10"/>
+        <TopLine Value="2175"/>
+        <CursorPos X="1" Y="2186"/>
+        <UsageCount Value="11"/>
       </Unit8>
+      <Unit9>
+        <Filename Value="maquinaria.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="form_maquina"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="maquinaria"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="75"/>
+        <CursorPos X="23" Y="75"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="lib/zeosdbo/src/component/ZAbstractDataset.pas"/>
+        <UnitName Value="ZAbstractDataset"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="378"/>
+        <CursorPos X="99" Y="387"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="../SySGyM/libs/trunk/src/dbc/ZDbcMySqlUtils.pas"/>
+        <UnitName Value="ZDbcMySqlUtils"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="423"/>
+        <CursorPos X="1" Y="433"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="../SySGyM/libs/trunk/src/dbc/ZDbcCache.pas"/>
+        <UnitName Value="ZDbcCache"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="308"/>
+        <CursorPos X="1" Y="319"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit12>
     </Units>
-    <JumpHistory Count="6" HistoryIndex="5">
+    <JumpHistory Count="28" HistoryIndex="27">
       <Position1>
-        <Filename Value="main.pas"/>
-        <Caret Line="33" Column="22" TopLine="19"/>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="48" Column="26" TopLine="31"/>
       </Position1>
       <Position2>
-        <Filename Value="main.pas"/>
-        <Caret Line="37" Column="30" TopLine="19"/>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="49" Column="23" TopLine="31"/>
       </Position2>
       <Position3>
-        <Filename Value="main.pas"/>
-        <Caret Line="38" Column="64" TopLine="22"/>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="50" Column="20" TopLine="31"/>
       </Position3>
       <Position4>
-        <Filename Value="main.pas"/>
-        <Caret Line="36" Column="36" TopLine="22"/>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="49" Column="20" TopLine="30"/>
       </Position4>
       <Position5>
-        <Filename Value="SysGym.lpr"/>
-        <Caret Line="23" Column="66" TopLine="5"/>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="48" Column="20" TopLine="29"/>
       </Position5>
       <Position6>
-        <Filename Value="SysGym.lpr"/>
-        <Caret Line="21" Column="41" TopLine="5"/>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="49" Column="20" TopLine="30"/>
       </Position6>
+      <Position7>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="50" Column="20" TopLine="31"/>
+      </Position7>
+      <Position8>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="51" Column="20" TopLine="32"/>
+      </Position8>
+      <Position9>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="50" Column="20" TopLine="31"/>
+      </Position9>
+      <Position10>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="51" Column="20" TopLine="32"/>
+      </Position10>
+      <Position11>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="52" Column="20" TopLine="33"/>
+      </Position11>
+      <Position12>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="47" Column="96" TopLine="34"/>
+      </Position12>
+      <Position13>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="49" Column="96" TopLine="35"/>
+      </Position13>
+      <Position14>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="52" Column="42" TopLine="43"/>
+      </Position14>
+      <Position15>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="53" Column="42" TopLine="44"/>
+      </Position15>
+      <Position16>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="55" Column="42" TopLine="46"/>
+      </Position16>
+      <Position17>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="72" Column="1" TopLine="53"/>
+      </Position17>
+      <Position18>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="65" Column="21" TopLine="58"/>
+      </Position18>
+      <Position19>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="67" Column="21" TopLine="60"/>
+      </Position19>
+      <Position20>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="73" Column="39" TopLine="66"/>
+      </Position20>
+      <Position21>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="74" Column="6" TopLine="63"/>
+      </Position21>
+      <Position22>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="75" Column="6" TopLine="64"/>
+      </Position22>
+      <Position23>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="91" Column="4" TopLine="73"/>
+      </Position23>
+      <Position24>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="98" Column="4" TopLine="77"/>
+      </Position24>
+      <Position25>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="85" Column="33" TopLine="64"/>
+      </Position25>
+      <Position26>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="72" Column="23" TopLine="93"/>
+      </Position26>
+      <Position27>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="73" Column="23" TopLine="73"/>
+      </Position27>
+      <Position28>
+        <Filename Value="maquinaria.pas"/>
+        <Caret Line="74" Column="23" TopLine="74"/>
+      </Position28>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
