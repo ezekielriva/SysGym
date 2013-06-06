@@ -4,6 +4,61 @@ object form_main: Tform_main
   Top = 111
   Width = 563
   Caption = 'Sistema de Gestión de Gimnasios: SysGym'
+  Menu = menu_principal
   OnCreate = FormCreate
   LCLVersion = '1.0.6.0'
+  object menu_principal: TMainMenu
+    left = 8
+    top = 400
+    object m_socios: TMenuItem
+      Caption = 'Socios'
+      object m_gestion_socios: TMenuItem
+        Caption = 'Gestión de Socios'
+      end
+      object m_checkins: TMenuItem
+        Caption = 'Checkins'
+      end
+      object m_pago_cuotas: TMenuItem
+        Caption = 'Pagos de Cuotas'
+      end
+    end
+    object m_inventario: TMenuItem
+      Caption = 'Inventario'
+      OnClick = m_inventarioClick
+      object m_maquinaria: TMenuItem
+        Caption = 'Gestión de Maquinas'
+      end
+      object m_categoria: TMenuItem
+        Caption = 'Gestión de Categorias'
+      end
+    end
+    object m_empleados: TMenuItem
+      Caption = 'Empleados'
+      object m_gestion_empleados: TMenuItem
+        Caption = 'Gestión de Empleados'
+      end
+      object m_reportes: TMenuItem
+        Caption = 'Reportes'
+        object m_reporte_mensual: TMenuItem
+          Caption = 'Reporte Mensual'
+        end
+      end
+    end
+    object m_preferencias: TMenuItem
+      Caption = 'Preferencias'
+      object m_configuracion: TMenuItem
+        Caption = 'Configuración'
+      end
+    end
+    object m_ayuda: TMenuItem
+      Caption = 'Ayuda'
+      object m_sobre: TMenuItem
+        Caption = 'Sobre SysGym'
+      end
+    end
+    object m_salir: TMenuItem
+      Caption = 'Salir'
+      OnClick = m_salirClick
+    end
+  end
 end
