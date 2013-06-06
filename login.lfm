@@ -1,61 +1,74 @@
 object form_login: Tform_login
   Left = 414
-  Height = 233
+  Height = 167
   Top = 148
   Width = 316
   Caption = 'Login'
-  ClientHeight = 233
+  ClientHeight = 167
   ClientWidth = 316
-  FormStyle = fsMDIChild
   OnCreate = FormCreate
+  Position = poMainFormCenter
   LCLVersion = '1.0.6.0'
   object lbl_user: TLabel
-    Left = 8
+    Left = 33
     Height = 16
-    Top = 48
-    Width = 49
-    Caption = 'lbl_user'
+    Top = 32
+    Width = 53
+    Caption = 'Usuario:'
     ParentColor = False
   end
   object lbl_pass: TLabel
     Left = 8
     Height = 16
-    Top = 88
-    Width = 51
-    Caption = 'lbl_pass'
+    Top = 72
+    Width = 78
+    Caption = 'Contraseña:'
     ParentColor = False
   end
   object txt_user: TEdit
-    Left = 72
+    Left = 96
     Height = 25
-    Top = 48
-    Width = 224
+    Top = 32
+    Width = 200
     TabOrder = 0
     Text = 'ezekielr'
   end
   object txt_pass: TEdit
-    Left = 72
+    Left = 96
     Height = 25
-    Top = 88
-    Width = 224
+    Top = 72
+    Width = 200
     EchoMode = emPassword
     PasswordChar = '*'
     TabOrder = 1
-    Text = 'txt_pass'
+    Text = '1234'
   end
-  object Button1: TButton
-    Left = 112
-    Height = 25
-    Top = 128
-    Width = 75
-    Caption = 'Conectar'
-    OnClick = Button1Click
+  object btn_ingresar: TButton
+    Left = 208
+    Height = 33
+    Top = 112
+    Width = 88
+    Caption = 'Ingresar'
+    ModalResult = 1
+    OnClick = btn_ingresarClick
     TabOrder = 2
+  end
+  object btn_salir: TButton
+    Left = 112
+    Height = 33
+    Top = 112
+    Width = 83
+    Cancel = True
+    Caption = 'Salir'
+    Font.Height = -13
+    ModalResult = 11
+    ParentFont = False
+    TabOrder = 3
   end
   object zQuery: TZQuery
     Connection = modulo_conexiones.ZConexion
     Params = <>
-    left = 24
-    top = 160
+    left = 8
+    top = 120
   end
 end

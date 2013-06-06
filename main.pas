@@ -31,9 +31,7 @@ implementation
 
 procedure Tform_main.FormCreate(Sender: TObject);
 begin
-  Application.CreateForm(Tform_login, form_login);
-  modulo_conexiones.ZConexion.Connect;
-  form_login.Show;
+     MessageDlg('Bienvenido', 'Bienvenido al Sistema de Gestión de Gimnasios', mtInformation, [mbClose], 0);
 end;
 
 end.

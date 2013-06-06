@@ -13,13 +13,14 @@ type
   { Tform_login }
 
   Tform_login = class(TForm)
-    Button1: TButton;
+    btn_ingresar: TButton;
+    btn_salir: TButton;
     txt_user: TEdit;
     txt_pass: TEdit;
     lbl_user: TLabel;
     lbl_pass: TLabel;
     zQuery: TZQuery;
-    procedure Button1Click(Sender: TObject);
+    procedure btn_ingresarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
 
@@ -41,7 +42,7 @@ begin
    zQuery.Connection := modulo_conexiones.ZConexion;
 end;
 
-procedure Tform_login.Button1Click(Sender: TObject);
+procedure Tform_login.btn_ingresarClick(Sender: TObject);
 var usuario: string; password: string;
 begin
   with zQuery do
@@ -52,13 +53,13 @@ begin
      usuario := FieldByName('usuario').AsString;
      password := FieldByName('password').AsString;
      if txt_pass.Text = password then
-        ShowMessage('LOGEADO')
+        Close
      else
         MessageDlg('Atención','Usuario o Contraseña inválidos. Intentelo nuevamente.', mtWarning, [mbOK], 0 );
   end;
 
-
 end;
+
 
 end.
 

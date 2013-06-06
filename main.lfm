@@ -4,7 +4,6 @@ object form_main: Tform_main
   Top = 111
   Width = 563
   Caption = 'Sistema de Gestión de Gimnasios: SysGym'
-  DefaultMonitor = dmMainForm
   OnCreate = FormCreate
   LCLVersion = '1.0.6.0'
 end
