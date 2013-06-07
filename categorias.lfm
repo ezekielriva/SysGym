@@ -1,0 +1,116 @@
+object Form1: TForm1
+  Left = 305
+  Height = 500
+  Top = 109
+  Width = 800
+  Caption = 'SysGym: Categorias'
+  ClientHeight = 500
+  ClientWidth = 800
+  OnClose = FormClose
+  OnShow = FormShow
+  LCLVersion = '1.0.6.0'
+  object gb_acciones: TGroupBox
+    Left = 664
+    Height = 488
+    Top = 8
+    Width = 129
+    Caption = 'Acciones'
+    ClientHeight = 471
+    ClientWidth = 125
+    TabOrder = 0
+    object btn_salir: TButton
+      Left = 6
+      Height = 25
+      Top = 441
+      Width = 115
+      Caption = 'Salir'
+      OnClick = btn_salirClick
+      TabOrder = 0
+    end
+    object btn_nuevo: TButton
+      Left = 6
+      Height = 25
+      Top = 3
+      Width = 115
+      Caption = 'Nueva'
+      OnClick = btn_nuevoClick
+      TabOrder = 1
+    end
+    object btn_borrar: TButton
+      Left = 6
+      Height = 25
+      Top = 65
+      Width = 115
+      Caption = 'Borrar'
+      OnClick = btn_borrarClick
+      TabOrder = 2
+    end
+    object btn_aplicar: TButton
+      Left = 6
+      Height = 25
+      Top = 33
+      Width = 115
+      Caption = 'Aplicar'
+      OnClick = btn_aplicarClick
+      TabOrder = 3
+    end
+  end
+  object dbGrid_categorias: TDBGrid
+    Left = 8
+    Height = 488
+    Top = 8
+    Width = 648
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'id'
+        Width = 317
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'nombre'
+        Width = 317
+        FieldName = 'nombre'
+      end>
+    DataSource = dsCategorias
+    Scrollbars = ssAutoVertical
+    TabOrder = 1
+    TitleStyle = tsNative
+  end
+  object zTableCategorias: TZTable
+    Connection = modulo_conexiones.ZConexion
+    SortedFields = 'id'
+    TableName = 'Categoria'
+    IndexFieldNames = 'id Asc'
+    left = 56
+    top = 416
+    object zTableCategorias_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object zTableCategorias_nombre: TStringField
+      DisplayWidth = 180
+      FieldKind = fkData
+      FieldName = 'nombre'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 180
+    end
+  end
+  object dsCategorias: TDatasource
+    DataSet = zTableCategorias
+    left = 152
+    top = 416
+  end
+end

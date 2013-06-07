@@ -1,19 +1,18 @@
 object form_maquina: Tform_maquina
-  Left = 321
-  Height = 373
-  Top = 148
+  Left = 358
+  Height = 500
+  Top = 135
   Width = 800
   Caption = 'SysGym: Maquinas'
-  ClientHeight = 373
+  ClientHeight = 500
   ClientWidth = 800
   OnCreate = FormCreate
   LCLVersion = '1.0.6.0'
   object dbGrid_maquina: TDBGrid
     Left = 8
-    Height = 296
+    Height = 336
     Top = 64
     Width = 648
-    AutoFillColumns = True
     Color = clWindow
     Columns = <    
       item
@@ -39,15 +38,16 @@ object form_maquina: Tform_maquina
     DataSource = ds_Maquina
     Scrollbars = ssAutoVertical
     TabOrder = 0
-    TitleStyle = tsNative
+    TitleStyle = tsStandard
+    OnCellClick = dbGrid_maquinaCellClick
   end
-  object GroupBox1: TGroupBox
+  object gb_acciones: TGroupBox
     Left = 664
-    Height = 352
+    Height = 488
     Top = 8
     Width = 129
     Caption = 'Acciones'
-    ClientHeight = 335
+    ClientHeight = 471
     ClientWidth = 125
     TabOrder = 2
     object btn_limpiar_filtro: TButton
@@ -62,7 +62,7 @@ object form_maquina: Tform_maquina
     object btn_salir: TButton
       Left = 6
       Height = 25
-      Top = 305
+      Top = 441
       Width = 115
       Caption = 'Salir'
       OnClick = btn_salirClick
@@ -131,6 +131,25 @@ object form_maquina: Tform_maquina
       TabOrder = 1
     end
   end
+  object tLog: TMemo
+    Left = 8
+    Height = 90
+    Top = 406
+    Width = 649
+    ScrollBars = ssAutoVertical
+    TabOrder = 3
+  end
+  object VirtualDrawTree1: TVirtualDrawTree
+    Left = 32
+    Height = 100
+    Top = 112
+    Width = 200
+    Header.AutoSizeIndex = 0
+    Header.Columns = <>
+    Header.DefaultHeight = 17
+    Header.MainColumn = -1
+    TabOrder = 4
+  end
   object zTableMaquina: TZTable
     Connection = modulo_conexiones.ZConexion
     TableName = 'Maquina'
@@ -188,7 +207,6 @@ object form_maquina: Tform_maquina
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      OnChange = zTable_Estado_idChange
     end
   end
   object ds_Maquina: TDatasource

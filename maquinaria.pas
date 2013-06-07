@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, DBGrids,
-  StdCtrls, DbCtrls, ZDataset, ZSqlUpdate, conexiones, db;
+  StdCtrls, DbCtrls, ZDataset, ZSqlUpdate, conexiones, VTHeaderPopup,
+  VirtualTrees, db;
 
 type
 
@@ -25,7 +26,9 @@ type
     ds_Maquina: TDatasource;
     dbGrid_maquina: TDBGrid;
     gb_filtro: TGroupBox;
-    GroupBox1: TGroupBox;
+    gb_acciones: TGroupBox;
+    tLog: TMemo;
+    VirtualDrawTree1: TVirtualDrawTree;
     ZROQuery_Categoria: TZReadOnlyQuery;
     ZROQuery_Estado: TZReadOnlyQuery;
     ZROQuery_Estadoid: TLongintField;
@@ -41,8 +44,8 @@ type
     procedure btn_nuevoClick(Sender: TObject);
     procedure btn_salirClick(Sender: TObject);
     procedure dbcb_filtro_estadoChange(Sender: TObject);
+    procedure dbGrid_maquinaCellClick(Column: TColumn);
     procedure FormCreate(Sender: TObject);
-    procedure zTable_Estado_idChange(Sender: TField);
   private
     { private declarations }
   public
@@ -64,6 +67,7 @@ begin
   ZROQuery_Estado.Open;
   zTableMaquina.Open;
 end;
+
 
 procedure Tform_maquina.btn_nuevoClick(Sender: TObject);
 begin
@@ -87,6 +91,13 @@ begin
   end;
 end;
 
+procedure Tform_maquina.dbGrid_maquinaCellClick(Column: TColumn);
+begin
+    tLog.Lines.Add( Concat('FetchRow:', IntToStr(zTableMaquina.FetchRow)));
+    tLog.Lines.Add( Concat('Texto:', dbGrid_maquina.SelectedField.Text));
+    tLog.Lines.Add( Concat('Valor:', IntToStr(zTable_Categoria_id.AsInteger) ) );
+end;
+
 procedure Tform_maquina.btn_borrarClick(Sender: TObject);
 begin
   zTableMaquina.Delete;
@@ -101,11 +112,6 @@ end;
 procedure Tform_maquina.btn_limpiar_filtroClick(Sender: TObject);
 begin
      zTableMaquina.Filtered:=False;
-end;
-
-procedure Tform_maquina.zTable_Estado_idChange(Sender: TField);
-begin
-
 end;
 
 end.
