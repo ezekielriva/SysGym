@@ -13,6 +13,7 @@ object form_maquina: Tform_maquina
     Height = 336
     Top = 64
     Width = 648
+    AutoFillColumns = True
     Color = clWindow
     Columns = <    
       item
@@ -28,12 +29,12 @@ object form_maquina: Tform_maquina
       item
         Title.Caption = 'Estado'
         Width = 158
-        FieldName = 'Estado_id'
+        FieldName = 'Categoria'
       end    
       item
-        Title.Caption = 'Categoria'
+        Title.Caption = 'Estado'
         Width = 160
-        FieldName = 'Categoria_id'
+        FieldName = 'Estado'
       end>
     DataSource = ds_Maquina
     Scrollbars = ssAutoVertical
@@ -111,7 +112,6 @@ object form_maquina: Tform_maquina
       Top = 1
       Width = 152
       DataField = 'nombre'
-      DataSource = ds_estado
       ItemHeight = 0
       MaxLength = 0
       OnChange = dbcb_filtro_estadoChange
@@ -124,7 +124,6 @@ object form_maquina: Tform_maquina
       Top = 1
       Width = 156
       DataField = 'nombre'
-      DataSource = ds_categoria
       ItemHeight = 0
       MaxLength = 0
       Sorted = True
@@ -138,76 +137,6 @@ object form_maquina: Tform_maquina
     Width = 649
     ScrollBars = ssAutoVertical
     TabOrder = 3
-  end
-  object VirtualDrawTree1: TVirtualDrawTree
-    Left = 32
-    Height = 100
-    Top = 112
-    Width = 200
-    Header.AutoSizeIndex = 0
-    Header.Columns = <>
-    Header.DefaultHeight = 17
-    Header.MainColumn = -1
-    TabOrder = 4
-  end
-  object zTableMaquina: TZTable
-    Connection = modulo_conexiones.ZConexion
-    TableName = 'Maquina'
-    LinkedFields = 'Estado_id'
-    left = 56
-    top = 264
-    object zTable_id: TLongintField
-      DisplayWidth = 10
-      FieldKind = fkData
-      FieldName = 'id'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-    end
-    object zTable_descripcion: TStringField
-      DisplayLabel = 'Descripción'
-      DisplayWidth = 400
-      FieldKind = fkData
-      FieldName = 'descripcion'
-      Index = 1
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-      Size = 400
-    end
-    object zTable_Categoria_id: TLongintField
-      DisplayLabel = 'Categoria'
-      DisplayWidth = 10
-      FieldKind = fkLookup
-      FieldName = 'Categoria_id'
-      Index = 2
-      KeyFields = 'Categoria_id'
-      LookupCache = True
-      LookupDataSet = ZROQuery_Categoria
-      LookupKeyFields = 'id'
-      LookupResultField = 'nombre'
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-    end
-    object zTable_Estado_id: TLongintField
-      DisplayLabel = 'Estado'
-      DisplayWidth = 10
-      FieldKind = fkLookup
-      FieldName = 'Estado_id'
-      Index = 3
-      KeyFields = 'Estado_id'
-      LookupCache = True
-      LookupDataSet = ZROQuery_Estado
-      LookupKeyFields = 'id'
-      LookupResultField = 'nombre'
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = True
-    end
   end
   object ds_Maquina: TDatasource
     DataSet = zTableMaquina
@@ -262,5 +191,105 @@ object form_maquina: Tform_maquina
     Params = <>
     left = 120
     top = 288
+    object ZROQuery_Categoriaid: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ZROQuery_Categorianombre: TStringField
+      DisplayWidth = 180
+      FieldKind = fkData
+      FieldName = 'nombre'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 180
+    end
+  end
+  object zTableMaquina: TZTable
+    Connection = modulo_conexiones.ZConexion
+    TableName = 'Maquina'
+    LinkedFields = 'Estado_id'
+    left = 56
+    top = 264
+    object zTable_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zTable_descripcion: TStringField
+      DisplayLabel = 'Descripción'
+      DisplayWidth = 400
+      FieldKind = fkData
+      FieldName = 'descripcion'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 400
+    end
+    object zTableMaquinaCategoria_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Categoria_id'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zTableMaquinaEstado_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Estado_id'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zTableMaquina_lu_Categoria: TStringField
+      DisplayWidth = 180
+      FieldKind = fkLookup
+      FieldName = 'Categoria'
+      Index = 4
+      KeyFields = 'Categoria_id'
+      LookupCache = False
+      LookupDataSet = ZROQuery_Categoria
+      LookupKeyFields = 'id'
+      LookupResultField = 'nombre'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 180
+    end
+    object zTableMaquina_lu_Estado: TStringField
+      DisplayWidth = 80
+      FieldKind = fkLookup
+      FieldName = 'Estado'
+      Index = 5
+      KeyFields = 'Estado_id'
+      LookupCache = False
+      LookupDataSet = ZROQuery_Estado
+      LookupKeyFields = 'id'
+      LookupResultField = 'nombre'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 80
+    end
   end
 end

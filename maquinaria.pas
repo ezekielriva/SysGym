@@ -6,8 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, DBGrids,
-  StdCtrls, DbCtrls, ZDataset, ZSqlUpdate, conexiones, VTHeaderPopup,
-  VirtualTrees, db;
+  StdCtrls, DbCtrls, ZDataset, ZSqlUpdate, conexiones, db;
 
 type
 
@@ -28,15 +27,18 @@ type
     gb_filtro: TGroupBox;
     gb_acciones: TGroupBox;
     tLog: TMemo;
-    VirtualDrawTree1: TVirtualDrawTree;
     ZROQuery_Categoria: TZReadOnlyQuery;
+    ZROQuery_Categoriaid: TLongintField;
+    ZROQuery_Categorianombre: TStringField;
     ZROQuery_Estado: TZReadOnlyQuery;
     ZROQuery_Estadoid: TLongintField;
     ZROQuery_Estadonombre: TStringField;
     zTableMaquina: TZTable;
-    zTable_Categoria_id: TLongintField;
+    zTableMaquinaCategoria_id: TLongintField;
+    zTableMaquinaEstado_id: TLongintField;
+    zTableMaquina_lu_Categoria: TStringField;
+    zTableMaquina_lu_Estado: TStringField;
     zTable_descripcion: TStringField;
-    zTable_Estado_id: TLongintField;
     zTable_id: TLongintField;
     procedure btn_aplicarClick(Sender: TObject);
     procedure btn_borrarClick(Sender: TObject);
@@ -46,6 +48,7 @@ type
     procedure dbcb_filtro_estadoChange(Sender: TObject);
     procedure dbGrid_maquinaCellClick(Column: TColumn);
     procedure FormCreate(Sender: TObject);
+    procedure LongintField1Change(Sender: TField);
   private
     { private declarations }
   public
@@ -66,6 +69,11 @@ begin
   ZROQuery_Categoria.Open;
   ZROQuery_Estado.Open;
   zTableMaquina.Open;
+end;
+
+procedure Tform_maquina.LongintField1Change(Sender: TField);
+begin
+
 end;
 
 
@@ -93,9 +101,7 @@ end;
 
 procedure Tform_maquina.dbGrid_maquinaCellClick(Column: TColumn);
 begin
-    tLog.Lines.Add( Concat('FetchRow:', IntToStr(zTableMaquina.FetchRow)));
-    tLog.Lines.Add( Concat('Texto:', dbGrid_maquina.SelectedField.Text));
-    tLog.Lines.Add( Concat('Valor:', IntToStr(zTable_Categoria_id.AsInteger) ) );
+
 end;
 
 procedure Tform_maquina.btn_borrarClick(Sender: TObject);
