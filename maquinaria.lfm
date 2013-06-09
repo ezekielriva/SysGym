@@ -10,8 +10,8 @@ object form_maquina: Tform_maquina
   LCLVersion = '1.0.6.0'
   object dbGrid_maquina: TDBGrid
     Left = 8
-    Height = 336
-    Top = 64
+    Height = 488
+    Top = 8
     Width = 648
     AutoFillColumns = True
     Color = clWindow
@@ -27,7 +27,7 @@ object form_maquina: Tform_maquina
         FieldName = 'descripcion'
       end    
       item
-        Title.Caption = 'Estado'
+        Title.Caption = 'Categoría'
         Width = 158
         FieldName = 'Categoria'
       end    
@@ -40,7 +40,6 @@ object form_maquina: Tform_maquina
     Scrollbars = ssAutoVertical
     TabOrder = 0
     TitleStyle = tsStandard
-    OnCellClick = dbGrid_maquinaCellClick
   end
   object gb_acciones: TGroupBox
     Left = 664
@@ -50,16 +49,7 @@ object form_maquina: Tform_maquina
     Caption = 'Acciones'
     ClientHeight = 471
     ClientWidth = 125
-    TabOrder = 2
-    object btn_limpiar_filtro: TButton
-      Left = 6
-      Height = 25
-      Top = 193
-      Width = 115
-      Caption = 'Limpiar Filtro'
-      OnClick = btn_limpiar_filtroClick
-      TabOrder = 0
-    end
+    TabOrder = 1
     object btn_salir: TButton
       Left = 6
       Height = 25
@@ -67,91 +57,49 @@ object form_maquina: Tform_maquina
       Width = 115
       Caption = 'Salir'
       OnClick = btn_salirClick
-      TabOrder = 1
+      TabOrder = 0
     end
     object btn_nuevo: TButton
       Left = 6
       Height = 25
       Top = 3
       Width = 115
-      Caption = 'Nueva'
+      Caption = 'Nuevo'
       OnClick = btn_nuevoClick
-      TabOrder = 2
+      TabOrder = 1
     end
     object btn_borrar: TButton
       Left = 6
       Height = 25
-      Top = 65
+      Top = 121
       Width = 115
       Caption = 'Borrar'
       OnClick = btn_borrarClick
-      TabOrder = 3
+      TabOrder = 2
     end
     object btn_aplicar: TButton
       Left = 6
       Height = 25
-      Top = 33
+      Top = 89
       Width = 115
       Caption = 'Aplicar'
       OnClick = btn_aplicarClick
+      TabOrder = 3
+    end
+    object btn_mostrar: TButton
+      Left = 6
+      Height = 25
+      Top = 33
+      Width = 115
+      Caption = 'Mostrar'
+      OnClick = btn_mostrarClick
       TabOrder = 4
     end
   end
-  object gb_filtro: TGroupBox
-    Left = 8
-    Height = 49
-    Top = 8
-    Width = 649
-    Caption = 'Filtro'
-    ClientHeight = 32
-    ClientWidth = 645
-    TabOrder = 1
-    object dbcb_filtro_estado: TDBComboBox
-      Left = 326
-      Height = 27
-      Top = 1
-      Width = 152
-      DataField = 'nombre'
-      ItemHeight = 0
-      MaxLength = 0
-      OnChange = dbcb_filtro_estadoChange
-      Sorted = True
-      TabOrder = 0
-    end
-    object dbcb_filtro_categoria: TDBComboBox
-      Left = 486
-      Height = 27
-      Top = 1
-      Width = 156
-      DataField = 'nombre'
-      ItemHeight = 0
-      MaxLength = 0
-      Sorted = True
-      TabOrder = 1
-    end
-  end
-  object tLog: TMemo
-    Left = 8
-    Height = 90
-    Top = 406
-    Width = 649
-    ScrollBars = ssAutoVertical
-    TabOrder = 3
-  end
   object ds_Maquina: TDatasource
     DataSet = zTableMaquina
-    left = 160
-    top = 104
-  end
-  object ds_estado: TDatasource
-    DataSet = ZROQuery_Estado
-    left = 392
-    top = 104
-  end
-  object ds_categoria: TDatasource
-    DataSet = ZROQuery_Categoria
-    left = 544
-    top = 104
+    left = 120
+    top = 240
   end
   object ZROQuery_Estado: TZReadOnlyQuery
     Connection = modulo_conexiones.ZConexion
