@@ -39,7 +39,7 @@ type
     procedure btn_mostrarClick(Sender: TObject);
     procedure btn_nuevoClick(Sender: TObject);
     procedure btn_salirClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { private declarations }
   public
@@ -55,7 +55,7 @@ implementation
 
 { Tform_maquina }
 
-procedure Tform_maquina.FormCreate(Sender: TObject);
+procedure Tform_maquina.FormShow(Sender: TObject);
 begin
   ZROQuery_Categoria.Open;
   ZROQuery_Estado.Open;

@@ -10,9 +10,9 @@ uses
 
 type
 
-  { TForm1 }
+  { Tform_categorias }
 
-  TForm1 = class(TForm)
+  Tform_categorias = class(TForm)
     btn_aplicar: TButton;
     btn_borrar: TButton;
     btn_nuevo: TButton;
@@ -37,47 +37,47 @@ type
   end;
 
 var
-  Form1: TForm1;
+  form_categorias: Tform_categorias;
 
 implementation
 
 {$R *.lfm}
 
-{ TForm1 }
+{ Tform_categorias }
 
 
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure Tform_categorias.FormCreate(Sender: TObject);
 begin
      zTableCategorias.Open;
 end;
 
-procedure TForm1.btn_nuevoClick(Sender: TObject);
+procedure Tform_categorias.btn_nuevoClick(Sender: TObject);
 begin
   zTableCategorias.Insert;
 end;
 
-procedure TForm1.btn_salirClick(Sender: TObject);
+procedure Tform_categorias.btn_salirClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+procedure Tform_categorias.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   zTableCategorias.Close;
 end;
 
-procedure TForm1.btn_aplicarClick(Sender: TObject);
+procedure Tform_categorias.btn_aplicarClick(Sender: TObject);
 begin
   zTableCategorias.ApplyUpdates;
 end;
 
-procedure TForm1.btn_borrarClick(Sender: TObject);
+procedure Tform_categorias.btn_borrarClick(Sender: TObject);
 begin
   zTableCategorias.Delete;
 end;
 
-procedure TForm1.FormShow(Sender: TObject);
+procedure Tform_categorias.FormShow(Sender: TObject);
 begin
      zTableCategorias.Open;
 end;

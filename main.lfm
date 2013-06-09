@@ -24,12 +24,13 @@ object form_main: Tform_main
     end
     object m_inventario: TMenuItem
       Caption = 'Inventario'
-      OnClick = m_inventarioClick
       object m_maquinaria: TMenuItem
         Caption = 'Gestión de Maquinas'
+        OnClick = m_maquinariaClick
       end
       object m_categoria: TMenuItem
         Caption = 'Gestión de Categorias'
+        OnClick = m_categoriaClick
       end
     end
     object m_empleados: TMenuItem

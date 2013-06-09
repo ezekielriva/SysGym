@@ -1,4 +1,4 @@
-object Form1: TForm1
+object form_categorias: Tform_categorias
   Left = 305
   Height = 500
   Top = 109
@@ -66,12 +66,12 @@ object Form1: TForm1
       item
         ReadOnly = True
         Title.Caption = 'id'
-        Width = 317
+        Width = 309
         FieldName = 'id'
       end    
       item
         Title.Caption = 'nombre'
-        Width = 317
+        Width = 309
         FieldName = 'nombre'
       end>
     DataSource = dsCategorias

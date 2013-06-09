@@ -6,7 +6,7 @@ object form_maquina: Tform_maquina
   Caption = 'SysGym: Maquinas'
   ClientHeight = 500
   ClientWidth = 800
-  OnCreate = FormCreate
+  OnShow = FormShow
   LCLVersion = '1.0.6.0'
   object dbGrid_maquina: TDBGrid
     Left = 8
@@ -18,22 +18,22 @@ object form_maquina: Tform_maquina
     Columns = <    
       item
         Title.Caption = 'id'
-        Width = 158
+        Width = 154
         FieldName = 'id'
       end    
       item
         Title.Caption = 'Descripcion'
-        Width = 158
+        Width = 154
         FieldName = 'descripcion'
       end    
       item
         Title.Caption = 'Categoría'
-        Width = 158
+        Width = 154
         FieldName = 'Categoria'
       end    
       item
         Title.Caption = 'Estado'
-        Width = 160
+        Width = 156
         FieldName = 'Estado'
       end>
     DataSource = ds_Maquina

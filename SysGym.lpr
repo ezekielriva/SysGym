@@ -24,7 +24,6 @@ begin
   else
       form_login.Free;
   Application.CreateForm(Tform_main, form_main);
-  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.
 

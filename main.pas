@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus, login,
-  conexiones, maquinaria;
+  conexiones, maquinaria, categorias;
 
 type
 
@@ -31,7 +31,8 @@ type
     m_configuracion: TMenuItem;
     m_gestion_empleados: TMenuItem;
     procedure FormCreate(Sender: TObject);
-    procedure m_inventarioClick(Sender: TObject);
+    procedure m_categoriaClick(Sender: TObject);
+    procedure m_maquinariaClick(Sender: TObject);
     procedure m_salirClick(Sender: TObject);
   private
     { private declarations }
@@ -43,6 +44,7 @@ var
   form_main: Tform_main;
   form_login: Tform_login;
   form_maquina: Tform_maquina;
+  form_categorias: Tform_categorias;
 
 implementation
 
@@ -52,14 +54,23 @@ implementation
 
 procedure Tform_main.FormCreate(Sender: TObject);
 begin
-     MessageDlg('Bienvenido', 'Bienvenido al Sistema de Gestión de Gimnasios', mtInformation, [mbClose], 0);
-     Application.CreateForm(Tform_maquina, form_maquina);
-     form_maquina.Show;
+     //MessageDlg('Bienvenido', 'Bienvenido al Sistema de Gestión de Gimnasios', mtInformation, [mbClose], 0);
 end;
 
-procedure Tform_main.m_inventarioClick(Sender: TObject);
+procedure Tform_main.m_categoriaClick(Sender: TObject);
 begin
+  if form_categorias = Nil then
+     form_categorias := Tform_categorias.Create(Self);
+  form_categorias.Show;
+end;
 
+
+
+procedure Tform_main.m_maquinariaClick(Sender: TObject);
+begin
+     if form_maquina = Nil then
+        form_maquina := Tform_maquina.Create(Self);
+     form_maquina.Show;
 end;
 
 procedure Tform_main.m_salirClick(Sender: TObject);
