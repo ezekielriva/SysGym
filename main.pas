@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus, login,
-  conexiones;
+  conexiones, maquinaria;
 
 type
 
@@ -42,6 +42,7 @@ type
 var
   form_main: Tform_main;
   form_login: Tform_login;
+  form_maquina: Tform_maquina;
 
 implementation
 
@@ -52,6 +53,8 @@ implementation
 procedure Tform_main.FormCreate(Sender: TObject);
 begin
      MessageDlg('Bienvenido', 'Bienvenido al Sistema de Gestión de Gimnasios', mtInformation, [mbClose], 0);
+     Application.CreateForm(Tform_maquina, form_maquina);
+     form_maquina.Show;
 end;
 
 procedure Tform_main.m_inventarioClick(Sender: TObject);

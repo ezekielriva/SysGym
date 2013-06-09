@@ -7,7 +7,8 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, main, login, conexiones, zcomponent, modulo_datos, Controls
+  Forms, main, login, conexiones, zcomponent, modulo_datos, Controls,
+  maquinaria, categorias, virtualtreeview_package
   { you can add units after this };
 
 {$R *.res}
@@ -23,7 +24,7 @@ begin
   else
       form_login.Free;
   Application.CreateForm(Tform_main, form_main);
-
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.
 

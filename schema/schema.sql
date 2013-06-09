@@ -49,6 +49,19 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `SysGym`.`Categoria`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `SysGym`.`Categoria` ;
+
+CREATE  TABLE IF NOT EXISTS `SysGym`.`Categoria` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `nombre` VARCHAR(45) NULL ,
+  PRIMARY KEY (`id`) ,
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `SysGym`.`Maquina`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `SysGym`.`Maquina` ;
@@ -56,12 +69,20 @@ DROP TABLE IF EXISTS `SysGym`.`Maquina` ;
 CREATE  TABLE IF NOT EXISTS `SysGym`.`Maquina` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `descripcion` VARCHAR(100) NULL ,
+  `Categoria_id` INT NULL ,
+  `Estado_id` INT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) ,
-  INDEX `fk_Maquina_Estado` (`id` ASC) ,
+  INDEX `fk_Maquina_Estado` (`Estado_id` ASC) ,
+  INDEX `fk_Maquina_Categoria` (`Categoria_id` ASC) ,
   CONSTRAINT `fk_Maquina_Estado`
-    FOREIGN KEY (`id` )
+    FOREIGN KEY (`Estado_id` )
     REFERENCES `SysGym`.`Estado` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Maquina_Categoria`
+    FOREIGN KEY (`Categoria_id` )
+    REFERENCES `SysGym`.`Categoria` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
