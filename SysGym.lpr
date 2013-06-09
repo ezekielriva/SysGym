@@ -8,7 +8,7 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, main, login, conexiones, zcomponent, modulo_datos, Controls,
-  maquinaria, categorias, virtualtreeview_package
+  maquinaria, categorias, virtualtreeview_package, socios
   { you can add units after this };
 
 {$R *.res}

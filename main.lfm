@@ -14,6 +14,7 @@ object form_main: Tform_main
       Caption = 'Socios'
       object m_gestion_socios: TMenuItem
         Caption = 'Gestión de Socios'
+        OnClick = m_gestion_sociosClick
       end
       object m_checkins: TMenuItem
         Caption = 'Checkins'

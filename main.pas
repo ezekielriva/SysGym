@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus, login,
-  conexiones, maquinaria, categorias;
+  conexiones, maquinaria, categorias, socios;
 
 type
 
@@ -32,6 +32,7 @@ type
     m_gestion_empleados: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure m_categoriaClick(Sender: TObject);
+    procedure m_gestion_sociosClick(Sender: TObject);
     procedure m_maquinariaClick(Sender: TObject);
     procedure m_salirClick(Sender: TObject);
   private
@@ -45,6 +46,7 @@ var
   form_login: Tform_login;
   form_maquina: Tform_maquina;
   form_categorias: Tform_categorias;
+  form_socios: Tform_socios;
 
 implementation
 
@@ -62,6 +64,13 @@ begin
   if form_categorias = Nil then
      form_categorias := Tform_categorias.Create(Self);
   form_categorias.Show;
+end;
+
+procedure Tform_main.m_gestion_sociosClick(Sender: TObject);
+begin
+  if form_socios = Nil then
+     form_socios := Tform_socios.Create(Self);
+  form_socios.Show;
 end;
 
 

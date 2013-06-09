@@ -1,7 +1,7 @@
 object form_maquina: Tform_maquina
-  Left = 358
+  Left = 379
   Height = 500
-  Top = 135
+  Top = 140
   Width = 800
   Caption = 'SysGym: Maquinas'
   ClientHeight = 500
