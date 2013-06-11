@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  conexiones, db, DBGrids, ZDataset;
+  conexiones, chekins, db, DBGrids, ZDataset;
 
 type
 
@@ -18,6 +18,7 @@ type
     btn_mostrar: TButton;
     btn_nuevo: TButton;
     btn_salir: TButton;
+    btn_checkins: TButton;
     ds_socios: TDatasource;
     dbGrid_Socios: TDBGrid;
     gb_acciones: TGroupBox;
@@ -32,6 +33,8 @@ type
     procedure btn_mostrarClick(Sender: TObject);
     procedure btn_nuevoClick(Sender: TObject);
     procedure btn_salirClick(Sender: TObject);
+    procedure btn_checkinsClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     { private declarations }
@@ -41,6 +44,7 @@ type
 
 var
   form_socios: Tform_socios;
+  form_checkins: Tform_checkins;
 
 implementation
 
@@ -57,6 +61,17 @@ procedure Tform_socios.btn_salirClick(Sender: TObject);
 begin
   zTableSocios.Close;
   Close;
+end;
+
+procedure Tform_socios.btn_checkinsClick(Sender: TObject);
+begin
+  form_checkins.setSocioId( dbGrid_Socios.DataSource.DataSet.RecNo );
+  form_checkins.ShowModal;
+end;
+
+procedure Tform_socios.FormCreate(Sender: TObject);
+begin
+  form_checkins := Tform_checkins.Create(Self);
 end;
 
 procedure Tform_socios.FormShow(Sender: TObject);

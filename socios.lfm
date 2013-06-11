@@ -6,6 +6,7 @@ object form_socios: Tform_socios
   Caption = 'SysGym: Gestión de Socios'
   ClientHeight = 500
   ClientWidth = 800
+  OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.0.6.0'
   object gb_acciones: TGroupBox
@@ -62,6 +63,15 @@ object form_socios: Tform_socios
       OnClick = btn_mostrarClick
       TabOrder = 4
     end
+    object btn_checkins: TButton
+      Left = 6
+      Height = 25
+      Top = 225
+      Width = 115
+      Caption = 'Mos. Checkins'
+      OnClick = btn_checkinsClick
+      TabOrder = 5
+    end
   end
   object dbGrid_Socios: TDBGrid
     Left = 8
@@ -75,27 +85,27 @@ object form_socios: Tform_socios
         MaxSize = 100
         ReadOnly = True
         Title.Caption = 'id'
-        Width = 126
+        Width = 123
         FieldName = 'id'
       end    
       item
         Title.Caption = 'Nombre'
-        Width = 126
+        Width = 123
         FieldName = 'nombre'
       end    
       item
         Title.Caption = 'Dirección'
-        Width = 126
+        Width = 123
         FieldName = 'direccion'
       end    
       item
         Title.Caption = 'Telefono Celular'
-        Width = 126
+        Width = 123
         FieldName = 'telefono_movil'
       end    
       item
         Title.Caption = 'Telefono Particular'
-        Width = 130
+        Width = 126
         FieldName = 'telefono_particular'
       end>
     DataSource = ds_socios

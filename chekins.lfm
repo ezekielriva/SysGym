@@ -1,0 +1,178 @@
+object form_checkins: Tform_checkins
+  Left = 307
+  Height = 503
+  Top = 139
+  Width = 800
+  Caption = 'SysGym: Checkins'
+  ClientHeight = 503
+  ClientWidth = 800
+  OnClose = FormClose
+  OnShow = FormShow
+  LCLVersion = '1.0.6.0'
+  object gb_acciones: TGroupBox
+    Left = 664
+    Height = 488
+    Top = 8
+    Width = 129
+    Caption = 'Acciones'
+    ClientHeight = 471
+    ClientWidth = 125
+    TabOrder = 0
+    object btn_salir: TButton
+      Left = 6
+      Height = 25
+      Top = 441
+      Width = 115
+      Caption = 'Salir'
+      ModalResult = 11
+      OnClick = btn_salirClick
+      TabOrder = 0
+    end
+    object btn_mostrar: TButton
+      Left = 6
+      Height = 25
+      Top = 9
+      Width = 115
+      Caption = 'Mostrar'
+      OnClick = btn_mostrarClick
+      TabOrder = 1
+    end
+  end
+  object dbGrid_checkins: TDBGrid
+    Left = 8
+    Height = 488
+    Top = 8
+    Width = 648
+    AutoEdit = False
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'nombre'
+        Width = 317
+        FieldName = 'nombre'
+      end    
+      item
+        Title.Caption = 'Fecha y Hora del Ingreso'
+        Width = 317
+        FieldName = 'fecha_hora'
+      end>
+    DataSource = ds_chekins
+    Scrollbars = ssAutoVertical
+    TabOrder = 1
+  end
+  object ds_chekins: TDatasource
+    DataSet = zROQuery_Chekins
+    left = 337
+    top = 216
+  end
+  object zROQuery_Chekins: TZReadOnlyQuery
+    Connection = modulo_conexiones.ZConexion
+    SQL.Strings = (
+      'SELECT * FROM Checkin'
+    )
+    Params = <>
+    left = 72
+    top = 189
+    object zROQuery_Chekinsfecha_hora: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fecha_hora'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zROQuery_ChekinsSocio_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Socio_id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zROQuery_lu_nombre_Socio: TStringField
+      DisplayWidth = 360
+      FieldKind = fkLookup
+      FieldName = 'nombre'
+      Index = 2
+      KeyFields = 'Socio_id'
+      LookupCache = False
+      LookupDataSet = zROQuery_Socios
+      LookupKeyFields = 'id'
+      LookupResultField = 'nombre'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 360
+    end
+  end
+  object zROQuery_Socios: TZReadOnlyQuery
+    Connection = modulo_conexiones.ZConexion
+    SQL.Strings = (
+      'SELECT id, nombre FROM Socio'
+    )
+    Params = <>
+    left = 72
+    top = 240
+  end
+  object zROQuery_Checkins_Socio: TZReadOnlyQuery
+    Connection = modulo_conexiones.ZConexion
+    SortType = stDescending
+    SQL.Strings = (
+      'SELECT Socio_id, fecha_hora FROM Checkin WHERE Socio_id = :socio_id'
+    )
+    Params = <    
+      item
+        DataType = ftInteger
+        Name = 'socio_id'
+        ParamType = ptInput
+      end>
+    left = 216
+    top = 192
+    ParamData = <    
+      item
+        DataType = ftInteger
+        Name = 'socio_id'
+        ParamType = ptInput
+      end>
+    object zROQuery_Checkins_SocioSocio_id1: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Socio_id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zROQuery_Checkins_Sociofecha_hora1: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fecha_hora'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object StringField1: TStringField
+      DisplayWidth = 360
+      FieldKind = fkLookup
+      FieldName = 'nombre'
+      Index = 2
+      KeyFields = 'Socio_id'
+      LookupCache = False
+      LookupDataSet = zROQuery_Socios
+      LookupKeyFields = 'id'
+      LookupResultField = 'nombre'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 360
+    end
+  end
+end
