@@ -5,14 +5,21 @@ unit main;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus, login,
-  conexiones, maquinaria, categorias, socios;
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus,
+  StdCtrls, DbCtrls, login, maquinaria, categorias, socios,
+  DBGrids, conexiones, ZDataset, db;
 
 type
 
   { Tform_main }
 
   Tform_main = class(TForm)
+    btn_ingresar: TButton;
+    dbGrid_Ultimos_Checkins: TDBGrid;
+    ds_checkins: TDatasource;
+    zTableCheckinSocio_nombre: TStringField;
+    txt_socio: TEdit;
+    GroupBox1: TGroupBox;
     menu_principal: TMainMenu;
     m_inventario: TMenuItem;
     m_reportes: TMenuItem;
@@ -30,6 +37,11 @@ type
     m_salir: TMenuItem;
     m_configuracion: TMenuItem;
     m_gestion_empleados: TMenuItem;
+    zTableCheckin: TZTable;
+    zTableCheckinfecha_hora: TDateTimeField;
+    zTableCheckinSocio_id: TLongintField;
+    zTableSocio: TZTable;
+    procedure btn_ingresarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure m_categoriaClick(Sender: TObject);
     procedure m_gestion_sociosClick(Sender: TObject);
@@ -57,6 +69,22 @@ implementation
 procedure Tform_main.FormCreate(Sender: TObject);
 begin
      //MessageDlg('Bienvenido', 'Bienvenido al Sistema de Gestión de Gimnasios', mtInformation, [mbClose], 0);
+     zTableSocio.Open;
+     zTableCheckin.Open;
+end;
+
+procedure Tform_main.btn_ingresarClick(Sender: TObject);
+begin
+  try
+   zTableCheckin.Insert;
+   zTableCheckinSocio_id.AsInteger:=StrToInt(txt_socio.Text);
+   zTableCheckinfecha_hora.AsDateTime:=Now;
+  except
+   on e : Exception do
+     MessageDlg('ERROR','Está intentando ingresar un Socio que no existe en la Base de datos', mtError, [mbOK], 0);
+  end;
+  zTableCheckin.Refresh;
+  zTableCheckin.Last;
 end;
 
 procedure Tform_main.m_categoriaClick(Sender: TObject);

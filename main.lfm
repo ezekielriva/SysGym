@@ -1,15 +1,69 @@
 object form_main: Tform_main
-  Left = 280
-  Height = 455
-  Top = 111
-  Width = 563
+  Left = 394
+  Height = 500
+  Top = 124
+  Width = 800
   Caption = 'Sistema de Gestión de Gimnasios: SysGym'
+  ClientHeight = 477
+  ClientWidth = 800
   Menu = menu_principal
   OnCreate = FormCreate
   LCLVersion = '1.0.6.0'
+  object dbGrid_Ultimos_Checkins: TDBGrid
+    Left = 8
+    Height = 236
+    Top = 240
+    Width = 784
+    AutoEdit = False
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'nombre'
+        Width = 385
+        FieldName = 'nombre'
+      end    
+      item
+        Title.Caption = 'fecha_hora'
+        Width = 385
+        FieldName = 'fecha_hora'
+      end>
+    DataSource = ds_checkins
+    Scrollbars = ssAutoVertical
+    TabOrder = 0
+  end
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 105
+    Top = 128
+    Width = 785
+    Caption = 'Ingresos'
+    ClientHeight = 88
+    ClientWidth = 781
+    TabOrder = 1
+    object btn_ingresar: TButton
+      Left = 358
+      Height = 25
+      Top = 56
+      Width = 75
+      Caption = 'Ingresar'
+      OnClick = btn_ingresarClick
+      TabOrder = 0
+    end
+    object txt_socio: TEdit
+      Left = 14
+      Height = 33
+      Top = 17
+      Width = 760
+      Font.Height = -19
+      Font.Name = 'Sans'
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
   object menu_principal: TMainMenu
-    left = 8
-    top = 400
+    left = 40
+    top = 408
     object m_socios: TMenuItem
       Caption = 'Socios'
       object m_gestion_socios: TMenuItem
@@ -61,6 +115,58 @@ object form_main: Tform_main
     object m_salir: TMenuItem
       Caption = 'Salir'
       OnClick = m_salirClick
+    end
+  end
+  object ds_checkins: TDatasource
+    DataSet = zTableCheckin
+    left = 216
+    top = 384
+  end
+  object zTableSocio: TZTable
+    Connection = modulo_conexiones.ZConexion
+    TableName = 'Socio'
+    left = 216
+    top = 328
+  end
+  object zTableCheckin: TZTable
+    Connection = modulo_conexiones.ZConexion
+    TableName = 'Checkin'
+    left = 216
+    top = 277
+    object zTableCheckinSocio_id: TLongintField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'Socio_id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object zTableCheckinfecha_hora: TDateTimeField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'fecha_hora'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object zTableCheckinSocio_nombre: TStringField
+      DisplayWidth = 360
+      FieldKind = fkLookup
+      FieldName = 'nombre'
+      Index = 2
+      KeyFields = 'Socio_id'
+      LookupCache = False
+      LookupDataSet = zTableSocio
+      LookupKeyFields = 'id'
+      LookupResultField = 'nombre'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 360
     end
   end
 end
