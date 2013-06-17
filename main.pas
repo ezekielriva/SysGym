@@ -85,6 +85,8 @@ begin
   end;
   zTableCheckin.Refresh;
   zTableCheckin.Last;
+  txt_socio.Clear;
+  FocusControl(txt_socio);
 end;
 
 procedure Tform_main.m_categoriaClick(Sender: TObject);
@@ -100,8 +102,6 @@ begin
      form_socios := Tform_socios.Create(Self);
   form_socios.Show;
 end;
-
-
 
 procedure Tform_main.m_maquinariaClick(Sender: TObject);
 begin
